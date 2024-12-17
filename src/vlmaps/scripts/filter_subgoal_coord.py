@@ -486,8 +486,8 @@ class SubgoalCoordinateFilter():
 
         scores_list = map_feats @ text_feats.T
         scores_list_sum = torch.sum(scores_list, dim=1, keepdim=True)
-        scores_list = torch.div(scores_list, scores_list_sum, where=scores_list_sum != 0)
-
+        sum_mask = scores_list_sum != 0
+        scores_list = torch.div(scores_list, scores_list_sum, where=scores_list_sum!=0)
         pixel_label = torch.argmax(scores_list, dim=1).view(self.obstacles.shape)
         pixel_confidence = torch.max(scores_list, dim=1).values.view(self.obstacles.shape)
 

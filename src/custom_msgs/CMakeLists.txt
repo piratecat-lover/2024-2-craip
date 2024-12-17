@@ -13,6 +13,8 @@ add_message_files(
   ContourLabel.msg
   Detection.msg
   Detections.msg
+  ObjectPosition.msg
+  ObjectPositions.msg
 )
 
 generate_messages(
