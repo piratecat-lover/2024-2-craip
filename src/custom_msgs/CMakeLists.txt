@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.0.2)
 project(custom_msgs)
 
 find_package(catkin REQUIRED COMPONENTS
+  roscpp
   rospy
   std_msgs
   geometry_msgs
@@ -11,6 +12,8 @@ find_package(catkin REQUIRED COMPONENTS
 add_message_files(
   FILES
   ContourLabel.msg
+  Detection.msg
+  Detections.msg
 )
 
 generate_messages(

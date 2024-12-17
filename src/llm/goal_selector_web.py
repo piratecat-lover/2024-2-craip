@@ -5,7 +5,7 @@ import argparse
 import streamlit as st
 from langchain_community.llms import Ollama
 
-from utils.prompt import get_code_generation_shot, get_landmark_generation_shot_cot
+from utils.prompt import get_code_generation_shot, get_landmark_generation_shot_cot, novel_prompt
 
 
 def local_llm(instruction, model):
@@ -65,7 +65,7 @@ def main():
     parser.add_argument("--llm", default='gpt', help="Choose how to use llm")
     parser.add_argument("--ollama", default='llama3.1:8b', help="Choose Ollama model")
     parser.add_argument("--gpt", default='gpt-4o', help="Choose GPT model")
-    parser.add_argument("--prompt", default='code', choices=['code', 'landmark'], help="Choose what kinds of prompt for selecting goals.")
+    parser.add_argument("--prompt", default='code', choices=['novel', 'code', 'landmark'], help="Choose what kinds of prompt for selecting goals.")
     args = parser.parse_args()
 
     text_dir_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "text")
@@ -95,7 +95,9 @@ def main():
 
         if submitted:
             # Get the response for the new instruction
-            if args.prompt == 'code':
+            if args.prompt == 'novel':
+                instruction = novel_prompt(text)
+            elif args.prompt == 'code':
                 instruction = get_code_generation_shot(text)
             elif args.prompt == 'landmark':
                 instruction = get_landmark_generation_shot_cot(text)

@@ -176,3 +176,33 @@ def get_code_generation_shot(instr):
         C: 
         """    
     return code_generation_shot
+
+
+
+# First prompt: Avoid human, go to AC
+
+def novel_prompt(instr):
+    if str(instr)[0]=='A':
+        return avoid_human(instr)
+    elif str(instr)[0]=='P':
+        return push_ball(instr)
+    elif str(instr)[0]=='G':
+        return pass_door(instr)
+
+def avoid_human(instr = "Avoid human and go to AC."):
+    code_gen = "Go to the table then move to the chair then go to the counter."
+    return get_code_generation_shot(code_gen)
+
+# Second prompt: Push the ball into the goalpost
+
+def push_ball(instr = "Push the ball into the goalpost."):
+    print("Push the ball into the goalpost.")
+    code_gen = "Go to the right of the ball then move to the goalpost."
+    return get_code_generation_shot(code_gen)
+
+# Third prompt: Go to the door, wait for the door to open, then go inside.
+
+def pass_door(instr = "Go to the door then wait for the door to open then go inside."):
+    print("Go to the door then wait for the door to open then go inside.")
+    code_gen = "Go to the door wait 10 seconds then go to the near wall."
+    return get_code_generation_shot(code_gen)

@@ -611,7 +611,8 @@ class SubgoalCoordinateFilter():
         2)find the most confident contour.
         """
         lang = mp3dcat
-
+        langreal = []
+        
         if not landmark in lang:
             lang.insert(0, landmark)
 
