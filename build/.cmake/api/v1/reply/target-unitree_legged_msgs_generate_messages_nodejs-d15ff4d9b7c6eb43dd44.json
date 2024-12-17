@@ -1,0 +1,307 @@
+{
+	"backtrace" : 4,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_custom_target",
+			"include",
+			"generate_messages",
+			"add_dependencies"
+		],
+		"files" : 
+		[
+			"/home/craip/build/environment/unitree/unitree_ros/unitree_ros_to_real/unitree_legged_msgs/cmake/unitree_legged_msgs-genmsg.cmake",
+			"/opt/ros/noetic/share/genmsg/cmake/genmsg-extras.cmake",
+			"environment/unitree/unitree_ros/unitree_ros_to_real/unitree_legged_msgs/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 26,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 307,
+				"parent" : 1
+			},
+			{
+				"file" : 0,
+				"parent" : 2
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 495,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 705,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 708,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 711,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 502,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 504,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 506,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 508,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 510,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 512,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 514,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 516,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 518,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 520,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 522,
+				"parent" : 3
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 5,
+			"id" : "std_msgs_generate_messages_nodejs::@5ad31a2e4038fbfc01cc"
+		},
+		{
+			"backtrace" : 6,
+			"id" : "geometry_msgs_generate_messages_nodejs::@5ad31a2e4038fbfc01cc"
+		},
+		{
+			"backtrace" : 7,
+			"id" : "sensor_msgs_generate_messages_nodejs::@2dbcd97f1d1113666d23"
+		},
+		{
+			"backtrace" : 8,
+			"id" : "_unitree_legged_msgs_generate_messages_check_deps_MotorCmd::@08e759302acc42a02dd1"
+		},
+		{
+			"backtrace" : 9,
+			"id" : "_unitree_legged_msgs_generate_messages_check_deps_MotorState::@08e759302acc42a02dd1"
+		},
+		{
+			"backtrace" : 10,
+			"id" : "_unitree_legged_msgs_generate_messages_check_deps_BmsCmd::@08e759302acc42a02dd1"
+		},
+		{
+			"backtrace" : 11,
+			"id" : "_unitree_legged_msgs_generate_messages_check_deps_BmsState::@08e759302acc42a02dd1"
+		},
+		{
+			"backtrace" : 12,
+			"id" : "_unitree_legged_msgs_generate_messages_check_deps_Cartesian::@08e759302acc42a02dd1"
+		},
+		{
+			"backtrace" : 13,
+			"id" : "_unitree_legged_msgs_generate_messages_check_deps_IMU::@08e759302acc42a02dd1"
+		},
+		{
+			"backtrace" : 14,
+			"id" : "_unitree_legged_msgs_generate_messages_check_deps_LED::@08e759302acc42a02dd1"
+		},
+		{
+			"backtrace" : 15,
+			"id" : "_unitree_legged_msgs_generate_messages_check_deps_LowCmd::@08e759302acc42a02dd1"
+		},
+		{
+			"backtrace" : 16,
+			"id" : "_unitree_legged_msgs_generate_messages_check_deps_LowState::@08e759302acc42a02dd1"
+		},
+		{
+			"backtrace" : 17,
+			"id" : "_unitree_legged_msgs_generate_messages_check_deps_HighCmd::@08e759302acc42a02dd1"
+		},
+		{
+			"backtrace" : 18,
+			"id" : "_unitree_legged_msgs_generate_messages_check_deps_HighState::@08e759302acc42a02dd1"
+		}
+	],
+	"id" : "unitree_legged_msgs_generate_messages_nodejs::@08e759302acc42a02dd1",
+	"name" : "unitree_legged_msgs_generate_messages_nodejs",
+	"paths" : 
+	{
+		"build" : "environment/unitree/unitree_ros/unitree_ros_to_real/unitree_legged_msgs",
+		"source" : "environment/unitree/unitree_ros/unitree_ros_to_real/unitree_legged_msgs"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 4,
+			"isGenerated" : true,
+			"path" : "/home/craip/build/environment/unitree/unitree_ros/unitree_ros_to_real/unitree_legged_msgs/CMakeFiles/unitree_legged_msgs_generate_messages_nodejs",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/craip/build/environment/unitree/unitree_ros/unitree_ros_to_real/unitree_legged_msgs/CMakeFiles/unitree_legged_msgs_generate_messages_nodejs.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/craip/devel/share/gennodejs/ros/unitree_legged_msgs/msg/BmsCmd.js.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/craip/devel/share/gennodejs/ros/unitree_legged_msgs/msg/BmsState.js.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/craip/devel/share/gennodejs/ros/unitree_legged_msgs/msg/Cartesian.js.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/craip/devel/share/gennodejs/ros/unitree_legged_msgs/msg/HighCmd.js.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/craip/devel/share/gennodejs/ros/unitree_legged_msgs/msg/HighState.js.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/craip/devel/share/gennodejs/ros/unitree_legged_msgs/msg/IMU.js.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/craip/devel/share/gennodejs/ros/unitree_legged_msgs/msg/LED.js.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/craip/devel/share/gennodejs/ros/unitree_legged_msgs/msg/LowCmd.js.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/craip/devel/share/gennodejs/ros/unitree_legged_msgs/msg/LowState.js.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/craip/devel/share/gennodejs/ros/unitree_legged_msgs/msg/MotorCmd.js.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/craip/devel/share/gennodejs/ros/unitree_legged_msgs/msg/MotorState.js.rule",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "UTILITY"
+}

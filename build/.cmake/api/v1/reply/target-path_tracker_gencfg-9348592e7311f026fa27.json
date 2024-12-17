@@ -1,0 +1,81 @@
+{
+	"backtrace" : 2,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_custom_target",
+			"generate_dynamic_reconfigure_options"
+		],
+		"files" : 
+		[
+			"/opt/ros/noetic/share/dynamic_reconfigure/cmake/dynamic_reconfigure-macros.cmake",
+			"planning/path_tracker/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 20,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 84,
+				"parent" : 1
+			}
+		]
+	},
+	"id" : "path_tracker_gencfg::@71aa5c88672efbaa5591",
+	"name" : "path_tracker_gencfg",
+	"paths" : 
+	{
+		"build" : "planning/path_tracker",
+		"source" : "planning/path_tracker"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				1,
+				2
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 2,
+			"isGenerated" : true,
+			"path" : "/home/craip/build/planning/path_tracker/CMakeFiles/path_tracker_gencfg",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/craip/build/planning/path_tracker/CMakeFiles/path_tracker_gencfg.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/craip/devel/include/path_tracker/dynamic_reconfig_for_mppiConfig.h.rule",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "UTILITY"
+}

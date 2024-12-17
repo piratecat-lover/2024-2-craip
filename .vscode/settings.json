@@ -1,0 +1,11 @@
+{
+    "cmake.sourceDirectory": "/home/craip/src/perception",
+    "python.autoComplete.extraPaths": [
+        "/home/craip/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/craip/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ]
+}

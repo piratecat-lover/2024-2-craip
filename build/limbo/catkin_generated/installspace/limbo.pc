@@ -1,0 +1,8 @@
+prefix=/home/craip/install
+
+Name: limbo
+Description: Description of limbo
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

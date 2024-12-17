@@ -1,0 +1,33 @@
+\subsubsection usage Usage
+\verbatim
+<node name="path_tracker_node" pkg="path_tracker" type="path_tracker_node">
+  <param name="Dummy_Path" type="bool" value="False" />
+  <param name="Dummy_Activate" type="bool" value="False" />
+  <param name="Dummy_Curvature" type="double" value="1.0" />
+  <param name="Dummy_Length" type="double" value="5.0" />
+  <param name="Dummy_Type" type="int" value="0" />
+  <param name="verbose" type="bool" value="False" />
+  <param name="vis_hist" type="bool" value="False" />
+  <param name="vel_coef" type="double" value="1.0" />
+  <param name="vel_thres_coef" type="double" value="1.0" />
+  <param name="average" type="double" value="10.0" />
+  <param name="K" type="int" value="500" />
+  <param name="T" type="int" value="20" />
+  <param name="n_ind_search" type="int" value="30" />
+  <param name="DT" type="double" value="0.1" />
+  <param name="target_speed" type="double" value="1.0" />
+  <param name="Lam" type="double" value="12.0" />
+  <param name="Gam" type="double" value="0.4" />
+  <param name="Cov_Lin_Vel" type="double" value="0.06" />
+  <param name="Cov_Ang_Vel" type="double" value="0.1" />
+  <param name="Q_Pos" type="double" value="12.0" />
+  <param name="Q_Vel" type="double" value="50.0" />
+  <param name="Q_Yaw" type="double" value="0.0" />
+  <param name="Qf_Pos" type="double" value="5.0" />
+  <param name="Qf_Vel" type="double" value="30.0" />
+  <param name="Qf_Yaw" type="double" value="0.0" />
+  <param name="R_Lin_Vel" type="double" value="0.1" />
+  <param name="R_Ang_Vel" type="double" value="0.6" />
+</node>
+\endverbatim
+

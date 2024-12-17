@@ -1,0 +1,8 @@
+prefix=/home/craip/devel
+
+Name: llm
+Description: Description of llm
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

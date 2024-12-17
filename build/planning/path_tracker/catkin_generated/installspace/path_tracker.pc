@@ -1,0 +1,8 @@
+prefix=/home/craip/install
+
+Name: path_tracker
+Description: Description of path_tracker
+Version: 0.0.0
+Cflags: -I${prefix}/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include -I/usr/include/eigen3
+Libs: -L${prefix}/lib -lpath_tracker
+Requires: roscpp rospy roslib std_msgs nav_msgs geometry_msgs visualization_msgs dynamic_reconfigure

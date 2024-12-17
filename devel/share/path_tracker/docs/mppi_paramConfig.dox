@@ -1,0 +1,32 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~Dummy_Path" : \b [bool] test tracker with generated dummy path min: False, default: False, max: True
+- \b "~Dummy_Activate" : \b [bool] Activate to generate dummy path min: False, default: False, max: True
+- \b "~Dummy_Curvature" : \b [double] dummy path curvature min: 0.1, default: 1.0, max: 5.0
+- \b "~Dummy_Length" : \b [double] dummy path length  min: 0.0, default: 5.0, max: 50.0
+- \b "~Dummy_Type" : \b [int] dummy path type min: 0, default: 0, max: 20
+- \b "~verbose" : \b [bool] print min: False, default: False, max: True
+- \b "~vis_hist" : \b [bool] visualization history min: False, default: False, max: True
+- \b "~vel_coef" : \b [double] velocity coefficient min: 0.1, default: 1.0, max: 4.0
+- \b "~vel_thres_coef" : \b [double] velocity coefficient min: 1.0, default: 1.0, max: 4.0
+- \b "~average" : \b [double] moving avg window size min: 1.0, default: 10.0, max: 20.0
+- \b "~K" : \b [int] number of samples min: 1, default: 500, max: 3000
+- \b "~T" : \b [int] number of predicted timesteps min: 5, default: 20, max: 50
+- \b "~n_ind_search" : \b [int] seach range for reference path in path min: 5, default: 30, max: 100
+- \b "~DT" : \b [double] system timestep min: 0.05, default: 0.1, max: 0.2
+- \b "~target_speed" : \b [double] desired vehicle velocity [m/s] min: 0.0, default: 1.0, max: 5.0
+- \b "~Lam" : \b [double] scaling factor for noise cost min: 0.1, default: 12.0, max: 100.0
+- \b "~Gam" : \b [double] scaling factor for time min: 0.0, default: 0.4, max: 1.5
+- \b "~Cov_Lin_Vel" : \b [double] covariance for linear velocity min: 0.0, default: 0.06, max: 5.0
+- \b "~Cov_Ang_Vel" : \b [double] covariance for angular velocity min: 0.0, default: 0.1, max: 5.0
+- \b "~Q_Pos" : \b [double] state cost for position min: 0.0, default: 12.0, max: 200.0
+- \b "~Q_Vel" : \b [double] state cost for velocity min: 0.0, default: 50.0, max: 200.0
+- \b "~Q_Yaw" : \b [double] state cost for heading min: 0.0, default: 0.0, max: 200.0
+- \b "~Qf_Pos" : \b [double] terminal cost for position min: 0.0, default: 5.0, max: 200.0
+- \b "~Qf_Vel" : \b [double] terminal cost for velocity min: 0.0, default: 30.0, max: 200.0
+- \b "~Qf_Yaw" : \b [double] terminal cost for heading min: 0.0, default: 0.0, max: 200.0
+- \b "~R_Lin_Vel" : \b [double] action cost for linear velocity min: 0.0, default: 0.1, max: 100.0
+- \b "~R_Ang_Vel" : \b [double] action cost for angular velocity min: 0.0, default: 0.6, max: 100.0
+

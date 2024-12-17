@@ -1,0 +1,8 @@
+prefix=/home/craip/install
+
+Name: vlmaps
+Description: Description of vlmaps
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib -lvlmaps
+Requires: 

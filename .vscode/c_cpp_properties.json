@@ -1,0 +1,35 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/craip/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/craip/src/environment/dynamic_objects/include/**",
+        "/home/craip/src/localization/thirdparty/fast_gicp/include/**",
+        "/home/craip/src/localization/hdl_global_localization/include/**",
+        "/home/craip/src/localization/hdl_localization/include/**",
+        "/home/craip/src/localization/thirdparty/ndt_omp/include/**",
+        "/home/craip/src/planning/path_planner/include/**",
+        "/home/craip/src/planning/path_tracker/include/**",
+        "/home/craip/src/perception/include/**",
+        "/home/craip/src/environment/test_zone/include/**",
+        "/home/craip/src/environment/unitree/unitree_ros/unitree_controller/include/**",
+        "/home/craip/src/environment/unitree/unitree_guide/unitree_guide/include/**",
+        "/home/craip/src/environment/unitree/unitree_ros/unitree_legged_control/include/**",
+        "/home/craip/src/environment/unitree/unitree_ros/unitree_ros_to_real/unitree_legged_sdk/include/**",
+        "/home/craip/src/environment/unitree/unitree_guide/unitree_actuator_sdk/unitree_motor_ctrl/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
