@@ -607,14 +607,31 @@ class SubgoalCoordinateFilter():
         return filtered_contour_list, filtered_contour_conf_list
     
     def get_landmark_coordinate(self, landmark, direction=None): 
-        """Get navgiable coordiante from given single query. overall process is 1)relabeling with confidence weighting and 
+        """Get navgiable coordinate from given single query. overall process is 1)relabeling with confidence weighting and 
         2)find the most confident contour.
         """
         lang = mp3dcat
-        langreal = []
+
+        ori_land = landmark
+        
+        except_land = ["green", "red", "blue", "circle", "triangle", "square", "one", "two", "three", "four", 'air-conditioner']
         
         if not landmark in lang:
-            lang.insert(0, landmark)
+    
+            if (landmark == "green" or landmark == "red" or landmark == "blue"):
+                landmark = "cones"
+            elif (landmark == "circle" or landmark == "triangle" or landmark == "square"):
+                landmark = "signs"
+            
+            elif (landmark == "one" or landmark == "two" or landmark == "three" or landmark == "four"):
+                landmark = "goal_post"
+                
+            elif landmark == "air-conditioner":
+                landmark = "counter"
+                
+            if not landmark in except_land:
+                lang.insert(0, landmark)
+
 
         pixel_label, pixel_confidence = self.get_pixel_label_and_confidence(lang)
         self.set_seg(lang, pixel_label)
@@ -656,7 +673,7 @@ class SubgoalCoordinateFilter():
                 collision_free = True
                 distance = self.get_euclidean_distance(prev_coord, [navigable_point])
                 conf = filtered_contour_conf_list[contour_idx]
-                if conf > max_conf and distance > self.goal_arrived_thresh:       
+                if conf > max_conf and distance > self.goal_arrived_thresh:      
                     max_conf = conf             
                     already_arrived = False
                     max_conf_contour_idx = contour_idx
@@ -669,11 +686,62 @@ class SubgoalCoordinateFilter():
             print(f"Detect {subgoal}, but robot can't go to {direction} side of {subgoal}.")
             return
         
-        if already_arrived:
-            print(f"Detect {subgoal}, but robot has already arrived {subgoal}.")
-            return
+        # if already_arrived:
+        #     print(f"Detect {subgoal}, but robot has already arrived {subgoal}.")
+        #     return
 
-        self.subgoal_dict[subgoal] = max_conf_navigable_point
+        # Dislocate point if subgoal is chair
+        if subgoal == "chair":
+            max_conf_navigable_point[0] -= 16
+            max_conf_navigable_point[1] -= 3
+        
+        if subgoal == "cones":
+            if ori_land == "blue":
+                max_conf_navigable_point[0] += 6
+                max_conf_navigable_point[1] -= 8
+            if ori_land == "red":
+                max_conf_navigable_point[0] += 12
+                max_conf_navigable_point[1] -= 8
+            if ori_land == "green":
+                max_conf_navigable_point[1] -= 8
+                
+        if subgoal == "signs":
+            if ori_land == "square":
+                max_conf_navigable_point[0] += 6
+            if ori_land == "circle":
+                max_conf_navigable_point[0] += 21
+            if ori_land == "triangle":
+                max_conf_navigable_point[0] += 35
+        
+        if subgoal == "goal_post":
+            if ori_land == "one":
+                max_conf_navigable_point[0] -= 13
+                max_conf_navigable_point[1] += 8
+            elif ori_land == "two":
+                max_conf_navigable_point[0] += 3
+                max_conf_navigable_point[1] += 20
+            elif ori_land == "three":
+                max_conf_navigable_point[0] -= 13
+                max_conf_navigable_point[1] += 33
+            elif ori_land == "four":
+                max_conf_navigable_point[0] += 9
+                max_conf_navigable_point[1] += 34
+                
+        # '''
+        # if subgoal == "circle":
+        #     max_conf_navigable_point[0] = self.subgoal_dict["signs"][0]
+        #     max_conf_navigable_point[1] = self.subgoal_dict["signs"][1] 
+
+        # if subgoal == "triangle":
+        #     max_conf_navigable_point[0] = self.subgoal_dict["signs"][0]+ 14
+        #     max_conf_navigable_point[1] = self.subgoal_dict["signs"][1]
+        
+        # if subgoal == "square":
+        #     max_conf_navigable_point[0] = self.subgoal_dict["signs"][0]- 15
+        #     max_conf_navigable_point[1] = self.subgoal_dict["signs"][1]
+        # '''
+
+        self.subgoal_dict[ori_land] = max_conf_navigable_point
         
         # save contour to draw
         self.contour_draw_list.append(filtered_contour_list[max_conf_contour_idx])
@@ -736,6 +804,7 @@ if __name__ == '__main__':
     scf = SubgoalCoordinateFilter(args)
     
     for lang in args.lang:
+        print(lang)
         scf.get_landmark_coordinate(lang)
     
     if args.vis:    

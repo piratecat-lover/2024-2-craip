@@ -63,7 +63,7 @@ std::vector<std::pair<int, int>> OccupancyGridMap::filter(const std::vector<std:
 
 
 std::vector<std::pair<int, int>> OccupancyGridMap::getSuccessors(const std::pair<int, int> p) {
-    std::vector<std::pair<int, int>> movements = getMovementsDirection8(p.first, p.second);
+    std::vector<std::pair<int, int>> movements = getMovementsDirection4(p.first, p.second);
     std::vector<std::pair<int, int>> filtered;
     for (std::pair<int, int> node : movements) {
         filtered = filter(movements);

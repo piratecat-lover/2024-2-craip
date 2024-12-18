@@ -1,3 +1,34 @@
+# mp3dcat = [
+#     'one',
+#     'two',
+#     'three',
+#     'four',
+#     'air_conditioner',
+#     'ball',
+#     'cone_blue',
+#     'can',
+#     'chair',
+#     'door',
+#     'chair_black_foldable',
+#     'goal_post',
+#     'cone_green',
+#     'human',
+#     'chair_blue',
+#     'cone_red',
+#     'sign_circle',
+#     'sign_square',
+#     'sign_stop',
+#     'sign_triangle',
+#     'sofa',
+#     'table',
+#     'wall',
+#     'floor',
+#     'ceiling',
+#     'other'
+# ]
+
+
+
 mp3dcat = [
     "void",
     "wall",
@@ -40,3 +71,25 @@ mp3dcat = [
     "clothes",
     "objects",
 ]
+
+# langdict = {
+#     "one": [80,65],
+#     "two": [92,76],
+#     "three": [80,92],
+#     "four": [97,98],
+#     "air_conditioner": [175,60],
+#     "ball": [75,90],
+#     "blue_cone": [160,70],
+#     "can": [130,80],
+#     "door": [32,139],
+#     "foldable_chair": [115,85],
+#     "goal_post": [80,60],
+#     "green_cone": [150,70],
+#     "human": [0,0],
+#     "blue_chair": [80,100],
+#     "red_cone": [170,70],
+#     "circle_sign": [160,139],
+#     "square_sign": [145,139],
+#     "stop_sign": [10,62],
+#     "triangle_sign": [174,139],
+# }

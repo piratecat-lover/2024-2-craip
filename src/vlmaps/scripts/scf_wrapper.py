@@ -3,6 +3,8 @@ import os
 import os.path as osp
 import sys
 import ast
+from custom_msgs.msg import ObjectPosition
+from geometry_msgs.msg import PointStamped
 
 vlmaps_pkg_path = osp.dirname(osp.dirname(osp.abspath(__file__)))
 source_path = osp.dirname(vlmaps_pkg_path)
@@ -58,6 +60,8 @@ class SCFWrapper():
         self.localization_sub = rospy.Subscriber(localization_topic, Odometry, self.localization_callback)
         self.success_pub = rospy.Publisher(success_topic, Bool, queue_size=10)
         self.reset_sub = rospy.Subscriber(reset_topic, Bool, self.reset_callback)
+        # Subscribe to YOLO-based global positions
+        self.object_pos_sub = rospy.Subscriber('/object_positions', ObjectPosition, self.object_position_callback)
 
         # subgoal related info
         self.generate_subgoal = True
@@ -147,6 +151,20 @@ class SCFWrapper():
         pixel_x = int(x / self._resolution + self.scf.obstacles.shape[1] / 2)
         pixel_y = int(- y / self._resolution + self.scf.obstacles.shape[0] / 2)
         return (pixel_x, pixel_y)
+    
+    def object_position_callback(self, msg):
+        # Only add if class_name is requested in instructions
+        if msg.class_name in self.requested_subgoals:
+            # convert to pixel coords if needed:
+            pixel_x, pixel_y = self.convert_to_pixel_coordinate([msg.x, msg.y])
+            self.scf.subgoal_dict[msg.class_name] = [pixel_x, pixel_y]
+
+            rospy.loginfo(f"Added YOLO-detected {msg.class_name} to subgoal_dict at global coords ({msg.x}, {msg.y})")
+            # Refresh subgoal list
+            self.subgoal_list = []
+            self._infill_subgoal_list()
+            # If we want to publish immediately:
+
             
     def publish_goal(self):
         """Pop subgoal from list and publish subgoal's coordinate and name one-by-one until the list is empty."""

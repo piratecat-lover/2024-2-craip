@@ -11,27 +11,33 @@ class YoloInferenceNode:
         rospy.init_node('yolo_inference_node')
         self.bridge = CvBridge()
         self.model = torch.hub.load('ultralytics/yolov5', 'custom', path='./yolo_params.pt')
-        self.pub = rospy.Publisher('/detected_objects', DetectionArray, queue_size=1)
+        self.pub = rospy.Publisher('/detected_objects', Detections, queue_size=1)
         # Subscribe to the camera topic - remember path!
-        rospy.Subscriber('/camera_face/rgb/image_raw', Image, self.callback, queue_size=1)
+        rospy.Subscriber('/d435/color/image_raw', Image, self.callback, queue_size=1)
     
     def callback(self, msg):
         cv_image = self.bridge.imgmsg_to_cv2(msg, "bgr8")
         results = self.model(cv_image)  # Run inference
-        detections = results.xyxy[0]    # bounding boxes: [x_min, y_min, x_max, y_max, confidence, class]
+        detections = results.xyxy[0]    # format: [x_min, y_min, x_max, y_max, confidence, class_id]
         class_names = self.model.names
 
         det_array = Detections()
         det_array.header = msg.header
         for det in detections:
-            cls_id, conf, x_min, y_min, x_max, y_max = det
+            x_min, y_min, x_max, y_max, conf, cls_id = det
+
             d = Detection()
-            d.class_name = class_names[int(cls_id)]
-            d.confidence = float(conf)
-            d.x_min = float(x_min)
-            d.y_min = float(y_min)
-            d.x_max = float(x_max)
-            d.y_max = float(y_max)
+            # Matching message field names and types:
+            d.cls_name = class_names[int(cls_id)]          # string
+            d.cls_id = int(cls_id)                         # int32
+            d.confidence = float(conf)                     # float64
+
+            # The message expects int32 for coordinates, so cast to int
+            d.x_min = int(x_min)
+            d.y_min = int(y_min)
+            d.x_max = int(x_max)
+            d.y_max = int(y_max)
+            
             det_array.detections.append(d)
 
         self.pub.publish(det_array)

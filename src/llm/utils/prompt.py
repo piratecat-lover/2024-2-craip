@@ -182,27 +182,43 @@ def get_code_generation_shot(instr):
 # First prompt: Avoid human, go to AC
 
 def novel_prompt(instr):
-    if str(instr)[0]=='A':
+    if str(instr)[0]=='1':
         return avoid_human(instr)
-    elif str(instr)[0]=='P':
+    elif str(instr)[-0]=='2':
+        return stop_cone(instr)
+    elif str(instr)[0]=='3':
+        return stop_at_sign(instr)
+    elif str(instr)[0]=='4':
         return push_ball(instr)
-    elif str(instr)[0]=='G':
+    elif str(instr)[0]=='5':
         return pass_door(instr)
 
 def avoid_human(instr = "Avoid human and go to AC."):
-    code_gen = "Go to the table then move to the chair then go to the counter."
+    code_gen = "Go to the table then move to the chair then go to the air-conditioner."
     return get_code_generation_shot(code_gen)
 
-# Second prompt: Push the ball into the goalpost
+# Second prompt: Stop at the cone
+
+def stop_cone(instr = "Stop at the red cone."):
+    code_gen = f"Go to the {instr.split()[-2]}. Stop."
+    return get_code_generation_shot(code_gen)
+
+# Third prompt: Stop at the sign
+
+def stop_at_sign(instr = "Stop at the circle sign."):
+    code_gen = f"Go to the {instr.split()[-2]}. Stop."
+    return get_code_generation_shot(code_gen)
+
+# Fourth prompt: Push the ball into the goalpost.
 
 def push_ball(instr = "Push the ball into the goalpost."):
-    print("Push the ball into the goalpost.")
-    code_gen = "Go to the right of the ball then move to the goalpost."
+    # print("Push the ball into the goalpost.")
+    code_gen = "Go to the three and then move to the one."
     return get_code_generation_shot(code_gen)
 
-# Third prompt: Go to the door, wait for the door to open, then go inside.
+# Fifth prompt: Go to the door, wait for the door to open, then go to the stop sign.
 
-def pass_door(instr = "Go to the door then wait for the door to open then go inside."):
-    print("Go to the door then wait for the door to open then go inside.")
-    code_gen = "Go to the door wait 10 seconds then go to the near wall."
+def pass_door(instr = "Go to the door then wait for the door to open, then go to the stop sign."):
+    # print("Go to the exit.")
+    code_gen = "Go to the left of the door and then go to the exit."
     return get_code_generation_shot(code_gen)
