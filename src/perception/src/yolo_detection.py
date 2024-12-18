@@ -10,8 +10,8 @@ class YoloInferenceNode:
     def __init__(self):
         rospy.init_node('yolo_inference_node')
         self.bridge = CvBridge()
-        self.model = torch.hub.load('ultralytics/yolov5', 'custom', path='./yolo_params.pt')
-        self.pub = rospy.Publisher('/detected_objects', Detections, queue_size=1)
+        self.model = torch.hub.load('ultralytics/yolov5', 'custom', path='/home/craip/src/perception/src/yolo_params.pt')
+        self.pub = rospy.Publisher('/detected_objects', Detections, queue_size=5)
         # Subscribe to the camera topic - remember path!
         rospy.Subscriber('/d435/color/image_raw', Image, self.callback, queue_size=1)
     
